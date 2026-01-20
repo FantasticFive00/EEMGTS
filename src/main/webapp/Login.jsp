@@ -19,7 +19,7 @@
                     <%= error %>
                 </p>
                 <% } %> <!-- LOGIN FORM -->
-                    <form action="${pageContext.request.contextPath}/login" method="post">
+                    <form action="<%= request.getContextPath() %>/login" method="post">
 
                         <label>Email Address</label>
                         <input type="email" name="email" required>
