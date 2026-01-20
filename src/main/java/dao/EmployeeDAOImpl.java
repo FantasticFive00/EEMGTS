@@ -131,7 +131,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             int rows = ps.executeUpdate();
             return rows > 0;
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             return false;
         }

@@ -280,7 +280,7 @@ public class SubmissionDAOImpl implements SubmissionDAO {
             ps.setString(1, empId);
             ps.setString(2, managerDeptId);
             return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace(); // Likely foreign key issue if Cascade isn't set
         }
         return false;
