@@ -17,6 +17,14 @@ public class Login extends HttpServlet {
 
     private EmployeeDAO employeeDAO = new EmployeeDAOImpl();
 
+    // Handle GET requests - redirect to Login page
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.sendRedirect(request.getContextPath() + "/Login.jsp");
+    }
+
+    // Handle POST requests - process login
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
