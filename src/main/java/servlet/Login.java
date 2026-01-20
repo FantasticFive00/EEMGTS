@@ -62,10 +62,10 @@ public class Login extends HttpServlet {
             // Check if the user is a manager or employee and redirect accordingly
             if ("manager".equalsIgnoreCase(emp.getRole())) {
                 // Redirect to ManagerHome.jsp if the user is a manager
-                response.sendRedirect("ManagerHome.jsp");
+                response.sendRedirect(request.getContextPath() + "/ManagerHome.jsp");
             } else {
                 // Redirect to Home.jsp if the user is a regular employee
-                response.sendRedirect("Home.jsp");
+                response.sendRedirect(request.getContextPath() + "/Home.jsp");
             }
         } else {
             // If login failed, set the error message and forward to login page
