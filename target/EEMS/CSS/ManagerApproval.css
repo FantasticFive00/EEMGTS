@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/* Page background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f2f7fc;
+}
+
+/* Main page wrapper */
+.page {
+    padding: 40px 60px;
+}
+
+/* Page title */
+.page-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Card container */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Card header */
+.card h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Table */
+.claim-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table header */
+.claim-table thead th {
+    background: #e9f1fb;
+    text-align: left;
+    padding: 14px;
+    font-size: 14px;
+    color: #333;
+    border-radius: 8px;
+}
+
+/* Table rows */
+.claim-table tbody tr {
+    background: #f7fbff;
+    border-bottom: 12px solid #ffffff;
+}
+
+.claim-table tbody td {
+    padding: 14px;
+    font-size: 14px;
+}
+
+/* Status styles */
+.status {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status.pending {
+    color: #ff9800;
+}
+
+.status.approved {
+    color: #2e7d32;
+}
+
+.status.rejected {
+    color: #c62828;
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 6px;
+    display: inline-block;
+}
+
+/* Button colors */
+.btn.blue {
+    background: #1e5bff;
+    color: #ffffff;
+}
+
+.btn.green {
+    background: #2e7d32;
+    color: #ffffff;
+}
+
+.btn.red {
+    background: #c62828;
+    color: #ffffff;
+}
+
+/* Disabled buttons */
+.btn.disabled,
+.btn:disabled {
+    background: #cfd8dc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Hover effects */
+.btn.blue:hover {
+    background: #1747c7;
+}
+
+.btn.green:hover {
+    background: #1b5e20;
+}
+
+.btn.red:hover {
+    background: #8e0000;
+}

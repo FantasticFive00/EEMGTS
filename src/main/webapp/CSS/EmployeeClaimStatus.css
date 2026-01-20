@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+/* --- Global Reset --- */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6; /* Light Grey-Blue Background */
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* --- Layout --- */
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-text {
+    margin-bottom: 25px;
+}
+
+.header-text h2 {
+    color: #111827;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.header-text p {
+    color: #6b7280;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* --- Back Button --- */
+.top-nav-area {
+    margin-bottom: 20px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: #2563eb;
+}
+
+/* --- Card Styling --- */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden; /* Clips the table corners */
+    border: 1px solid #e5e7eb;
+}
+
+/* --- Table Styling --- */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.styled-table thead {
+    background-color: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.styled-table th {
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.styled-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #1f2937;
+    vertical-align: middle;
+}
+
+/* Row Hover */
+.styled-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Column Specifics */
+.id-col {
+    font-family: monospace;
+    color: #6b7280 !important;
+    font-weight: bold;
+}
+
+.type-col i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+
+/* --- Status Badges (Pills) --- */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px; /* Pill shape */
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Status Colors */
+.approved {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.submitted {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.draft {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+/* --- Action Button --- */
+.btn-view {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #eff6ff;
+    transition: all 0.2s;
+}
+
+.btn-view:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-view i {
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+/* --- Empty State --- */
+.empty-state {
+    text-align: center;
+    padding: 40px !important;
+    color: #9ca3af;
+}
+.empty-state i {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+}

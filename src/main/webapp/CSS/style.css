@@ -1,0 +1,152 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-panel h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.left-panel h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.left-panel p {
+    max-width: 400px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    flex: 1;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-box h2 {
+    margin-bottom: 5px;
+    color: #1e3c72;
+}
+
+.form-box p {
+    margin-bottom: 25px;
+    color: #666;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2a5298;
+}
+
+.checkbox {
+    margin: 15px 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.checkbox a {
+    color: #2a5298;
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2a5298;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e3c72;
+}
+
+.login {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login a {
+    color: #2a5298;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .left-panel p {
+        margin: 0 auto;
+    }
+}
