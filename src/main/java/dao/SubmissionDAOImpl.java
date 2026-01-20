@@ -49,32 +49,32 @@ public class SubmissionDAOImpl implements SubmissionDAO {
 
             // STEP 2: Insert into Child Table based on Type
             if ("Medical".equalsIgnoreCase(s.getClaimType())) {
-                String sqlMed = "INSERT INTO MEDICAL (SUBMISSIONID, CLINICNAME, DIAGNOSIS, MRNDOCTOR) VALUES (?, ?, ?, ?)";
+                String sqlMed = "INSERT INTO MEDICAL_CLAIM (SUBMISSIONID, CLINICNAME, MRNDOCTOR, DIAGNOSIS) VALUES (?, ?, ?, ?)";
                 try (PreparedStatement psChild = conn.prepareStatement(sqlMed)) {
                     psChild.setInt(1, newId);
                     psChild.setString(2, s.getClinicName());
-                    psChild.setString(3, s.getDiagnosis());
-                    psChild.setString(4, s.getMrnDoctor());
+                    psChild.setString(3, s.getMrnDoctor());
+                    psChild.setString(4, s.getDiagnosis());
                     psChild.executeUpdate();
                 }
             } else if ("Overtime".equalsIgnoreCase(s.getClaimType())) {
-                String sqlOT = "INSERT INTO OVERTIME (SUBMISSIONID, HOURS, RATEPERHOURS, STARTTIME, ENDTIME) VALUES (?, ?, ?, ?, ?)";
+                String sqlOT = "INSERT INTO OVERTIME_CLAIM (SUBMISSIONID, HOURS, STARTTIME, ENDTIME, RATEPERHOURS) VALUES (?, ?, ?, ?, ?)";
                 try (PreparedStatement psChild = conn.prepareStatement(sqlOT)) {
                     psChild.setInt(1, newId);
                     psChild.setInt(2, s.getHours());
-                    psChild.setDouble(3, s.getRatePerHours());
-                    psChild.setTimestamp(4, s.getStartTime());
-                    psChild.setTimestamp(5, s.getEndTime());
+                    psChild.setTimestamp(3, s.getStartTime());
+                    psChild.setTimestamp(4, s.getEndTime());
+                    psChild.setDouble(5, s.getRatePerHours());
                     psChild.executeUpdate();
                 }
             } else if ("Travel".equalsIgnoreCase(s.getClaimType())) {
-                String sqlTravel = "INSERT INTO TRAVEL (SUBMISSIONID, MILEAGE, RATEPERKM, DEPARTUREDEST, ARRIVALDEST) VALUES (?, ?, ?, ?, ?)";
+                String sqlTravel = "INSERT INTO TRAVEL_CLAIM (SUBMISSIONID, DEPARTUREDEST, ARRIVALDEST, MILEAGE, RATEPERKM) VALUES (?, ?, ?, ?, ?)";
                 try (PreparedStatement psChild = conn.prepareStatement(sqlTravel)) {
                     psChild.setInt(1, newId);
-                    psChild.setDouble(2, s.getMileage());
-                    psChild.setDouble(3, s.getRatePerKm());
-                    psChild.setString(4, s.getDepartureDest());
-                    psChild.setString(5, s.getArrivalDest());
+                    psChild.setString(2, s.getDepartureDest());
+                    psChild.setString(3, s.getArrivalDest());
+                    psChild.setDouble(4, s.getMileage());
+                    psChild.setDouble(5, s.getRatePerKm());
                     psChild.executeUpdate();
                 }
             }
@@ -118,13 +118,13 @@ public class SubmissionDAOImpl implements SubmissionDAO {
 
         // This Query Joins ALL tables so we get the data regardless of type
         String sql = "SELECT s.*, " +
-                "m.CLINICNAME, m.DIAGNOSIS, m.MRNDOCTOR, " +
-                "o.HOURS, o.RATEPERHOURS, o.STARTTIME, o.ENDTIME, " +
-                "t.MILEAGE, t.RATEPERKM, t.DEPARTUREDEST, t.ARRIVALDEST " +
+                "m.CLINICNAME, m.MRNDOCTOR, m.DIAGNOSIS, " +
+                "o.HOURS, o.STARTTIME, o.ENDTIME, o.RATEPERHOURS, " +
+                "t.DEPARTUREDEST, t.ARRIVALDEST, t.MILEAGE, t.RATEPERKM " +
                 "FROM SUBMISSION s " +
-                "LEFT JOIN MEDICAL m ON s.SUBMISSIONID = m.SUBMISSIONID " +
-                "LEFT JOIN OVERTIME o ON s.SUBMISSIONID = o.SUBMISSIONID " +
-                "LEFT JOIN TRAVEL t ON s.SUBMISSIONID = t.SUBMISSIONID " +
+                "LEFT JOIN MEDICAL_CLAIM m ON s.SUBMISSIONID = m.SUBMISSIONID " +
+                "LEFT JOIN OVERTIME_CLAIM o ON s.SUBMISSIONID = o.SUBMISSIONID " +
+                "LEFT JOIN TRAVEL_CLAIM t ON s.SUBMISSIONID = t.SUBMISSIONID " +
                 "WHERE s.SUBMISSIONID = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();

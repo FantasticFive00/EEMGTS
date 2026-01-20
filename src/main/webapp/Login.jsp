@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>EEMS - Login</title>
@@ -13,34 +14,32 @@
         <div class="login-left">
             <h1>Login</h1>
             <p class="subtitle">Login to your account.</p>
-            <%
-    String error = (String) request.getAttribute("error");
-    if (error != null) {
-%>
-    <p style="color:red;"><%= error %></p>
-<%
-    }
-%>           <!-- LOGIN FORM -->
-            <form action="${pageContext.request.contextPath}/login" method="post">
+            <% String error=(String) request.getAttribute("error"); if (error !=null) { %>
+                <p style="color:red;">
+                    <%= error %>
+                </p>
+                <% } %> <!-- LOGIN FORM -->
+                    <form action="${pageContext.request.contextPath}/login" method="post">
 
-                <label>Email Address</label>
-                <input type="email" name="email" required>
+                        <label>Email Address</label>
+                        <input type="email" name="email" required>
 
-                <label>Password</label>
-                <input type="password" name="password" required>
-                
-                <button type="submit" name="role" value="employee" class="btn">
-                    Sign In As Employee
-                </button>
+                        <label>Password</label>
+                        <input type="password" name="password" required>
 
-                <button type="submit" name="role" value="manager" class="btn">
-                    Sign In As Manager
-                </button>
-            </form>
-            <div style="margin-top: 20px; text-align: center; font-size: 14px; color: #555;">
-                Do not have an Account? 
-                <a href="CreateAccount.jsp" style="color: #2E3A8C; font-weight: bold; text-decoration: none;">Sign Up</a>
-            </div>
+                        <button type="submit" name="role" value="employee" class="btn">
+                            Sign In As Employee
+                        </button>
+
+                        <button type="submit" name="role" value="manager" class="btn">
+                            Sign In As Manager
+                        </button>
+                    </form>
+                    <div style="margin-top: 20px; text-align: center; font-size: 14px; color: #555;">
+                        Do not have an Account?
+                        <a href="<%= request.getContextPath() %>/CreateAccount.jsp"
+                            style="color: #2E3A8C; font-weight: bold; text-decoration: none;">Sign Up</a>
+                    </div>
         </div>
         <div class="login-right">
             <div class="overlay">
@@ -55,4 +54,5 @@
         </div>
     </div>
 </body>
+
 </html>
