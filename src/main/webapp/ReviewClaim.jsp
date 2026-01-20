@@ -177,7 +177,7 @@
                                             </div>
                                         </div>
 
-                                        <% if ("SUBMITTED".equalsIgnoreCase(status)) { %>
+                                        <% if ("PENDING".equalsIgnoreCase(status)) { %>
                                             <div class="action-bar">
                                                 <form action="ManagerActionServlet" method="post"
                                                     style="display:inline;">
